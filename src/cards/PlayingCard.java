@@ -51,5 +51,13 @@ public class PlayingCard {
 	public Rank rank() {
 		return this.rank;
 	}
+	
+	/**
+	 * Get a string representation of a card.
+	 * @return string
+	 */
+	public String toString() {
+		return this.rank + " of " + this.suit;
+	}
 
 }

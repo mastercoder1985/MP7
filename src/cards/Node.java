@@ -18,6 +18,11 @@ public class Node {
 	protected PlayingCard next;
 	
 	/**
+	 * Previous card in the list.
+	 */
+	protected PlayingCard prev;
+	
+	/**
 	 * Create a new node with no next node.
 	 * @param c card
 	 */
@@ -26,13 +31,14 @@ public class Node {
 	}
 	
 	/**
-	 * Create a new node and set its next node.
+	 * Create a new node and set its next and previous node.
 	 * @param c card
 	 * @param next next card
 	 */
-	protected Node(PlayingCard c, PlayingCard next) {
+	protected Node(PlayingCard c, PlayingCard n, PlayingCard p) {
 		this.card = c;
-		this.next = next;
+		this.next = n;
+		this.prev = p;
 	}
 	
 }
