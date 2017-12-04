@@ -59,11 +59,27 @@ public class PlayingCardList {
 	}
 	
 	/**
+	 * Find a card in a list.
+	 * @param c card to search for
+	 * @return reference to card, or null if the list doesn't contain it
+	 */
+	public PlayingCard find(PlayingCard c) {
+		return null;
+	}
+	
+	/**
 	 * Swap cards between two indices of a list.
 	 * @param a first index
 	 * @param b second index
 	 */
 	public void swap(int a, int b) {
+		
+	}
+	
+	/**
+	 * Sort a list of playing cards
+	 */
+	public void sort() {
 		
 	}
 
