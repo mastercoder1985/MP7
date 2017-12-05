@@ -5,49 +5,24 @@ package cards;
  * @author andrewburke
  *
  */
-public class Deck {
-	
-	/**
-	 * List of playing cards to contain the deck.
-	 */
-	private PlayingCardList cards;
-	
-	/**
-	 * Default constructor.
-	 */
-	public Deck() {
-		
-	}
-	
-	/**
-	 * Construct a deck using a list of cards.
-	 * @param newCards card list to use
-	 */
-	public Deck(PlayingCardList newCards) {
-		
-	}
-	
-	/**
-	 * Copy constructor.
-	 * @param d deck to copy
-	 */
-	public Deck(Deck d) {
-		
-	}
+public class Deck extends PlayingCardList{
 	
 	/**
 	 * Draw a card from the top of deck.
 	 * @return card drawn
 	 */
 	public PlayingCard draw() {
-		return null;
+		return this.remove(0);
 	}
 	
 	/**
 	 * Shuffle a deck.
 	 */
 	public void shuffle() {
-		
+		for(int i = 0; i < this.length() - 1; i++) {
+			int randomIndex = (int) (Math.random() * (this.length() - i) + i + 1);
+			this.swap(i, randomIndex);
+		}
 	}
 
 }

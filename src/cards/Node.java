@@ -15,12 +15,19 @@ public class Node {
 	/**
 	 * Next card in the list.
 	 */
-	protected PlayingCard next;
+	protected Node next;
 	
 	/**
 	 * Previous card in the list.
 	 */
-	protected PlayingCard prev;
+	protected Node prev;
+	
+	/**
+	 * Default constructor.
+	 */
+	protected Node() {
+		
+	}
 	
 	/**
 	 * Create a new node with no next node.
@@ -31,14 +38,24 @@ public class Node {
 	}
 	
 	/**
-	 * Create a new node and set its next and previous node.
+	 * Add a card recursively to the end of the list.
 	 * @param c card
-	 * @param next next card
 	 */
-	protected Node(PlayingCard c, PlayingCard n, PlayingCard p) {
-		this.card = c;
-		this.next = n;
-		this.prev = p;
+	protected void add(PlayingCard c) {
+		if(this.next == null) {
+			this.next = new Node(c);
+			this.next.prev = this;
+		}
+	}
+	
+	/**
+	 * Remove this card from its list.
+	 * @return card removed
+	 */
+	protected PlayingCard remove() {
+		if(this.prev != null) this.prev.next = this.next;
+		if(this.next != null) this.next.prev = this.prev;
+		return this.card;
 	}
 	
 }

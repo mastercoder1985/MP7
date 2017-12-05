@@ -29,7 +29,17 @@ public class PlayingCardList {
 	 * @param orig original list to copy from
 	 */
 	public PlayingCardList(PlayingCardList orig) {
-		
+		while(orig.length > 0) {
+			this.add(orig.remove(0));
+		}
+	}
+	
+	/**
+	 * Get this list's length.
+	 * @return length
+	 */
+	public int length() {
+		return this.length;
 	}
 	
 	/**
@@ -37,7 +47,12 @@ public class PlayingCardList {
 	 * @param c
 	 */
 	public void add(PlayingCard c) {
-		
+		if(this.head == null) {
+			this.head = new Node(c);
+		} else {
+			this.head.add(c);
+		}
+		this.length++;
 	}
 	
 	/**
@@ -46,16 +61,28 @@ public class PlayingCardList {
 	 * @return removed card
 	 */
 	public PlayingCard remove(int index) {
-		return null;
+		this.length--;
+		return nodeAt(index).remove();
 	}
 	
 	/**
-	 * Get a reference of the card stored at a given index of a list.
+	 * Get a node at an index in a card list.
+	 * @throws IndexOutOfBoundsException if the index is too large or small
 	 * @param index index of card
 	 * @return reference to card
 	 */
-	public PlayingCard cardAt(int index) {
-		return null;
+	public Node nodeAt(int index) {
+		if(index < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+		Node pointer = this.head;
+		for(int i = index; i > 0; i--) {
+			if(pointer == null) {
+				throw new IndexOutOfBoundsException();
+			}
+			pointer = pointer.next;
+		}
+		return pointer;
 	}
 	
 	/**
@@ -73,6 +100,12 @@ public class PlayingCardList {
 	 * @param b second index
 	 */
 	public void swap(int a, int b) {
+		Node nodeA = this.nodeAt(a);
+		Node nodeB = this.nodeAt(b);
+		
+		PlayingCard tempCard = nodeA.card;
+		nodeA.card = nodeB.card;
+		nodeB.card = tempCard;
 		
 	}
 	
