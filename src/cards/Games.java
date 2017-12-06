@@ -4,33 +4,33 @@ import java.util.Scanner;
 
 /** class with the card games.*/
 public class Games {
-	/**  method where the user would choose what game to play.
-	 * @returns is the player has won or lost the game. */
-	public String chooseGame() {
-		Scanner user = new Scanner(System.in);
-		System.out.print("Please press a number to choose a game to play. \n 1) Blackjack. \n 2) War.");
-		int response = user.nextInt(); 
-		if (response != 1 || response != 2) {
-			System.out.println("Please choose one of the numbers available");
-		} else if (response == 1) {
-			playBlackjack();
-		} else if (response == 2) {
-			playWar();
-		}
-		return "";
-	}
+
+	Deck gameDeck;
+	Hand userHand;
+	Hand comHand; //hand for the computer.
 	/** method used to play blackjack.
 	 * 
 	 * @returns a statement that says if the user has lost or won.
 	 */
-	public String playBlackjack() {
-		return "";
+	public void blackjack() {
+		Scanner user = new Scanner(System.in);
+		String response = user.next();
+		System.out.println("Would you like to play blackjack yes or no");
+		if (response.toLowerCase() == "yes") {
+			System.out.println("The game is about to begin");
+			gameDeck.shuffle();			
+			userHand.addCard(gameDeck.draw());
+			userHand.addCard(gameDeck.draw());
+			comHand.addCard(gameDeck.draw());
+			comHand.addCard(gameDeck.draw());
+			
+			
+			
+		} else if (response.toLowerCase() == "no") {
+			System.out.println("I guess you don't want to play then."); 
+		} else {
+			System.out.println("Please type yes or no");
+		}
 	}
-	/** method used to play the game war.
-	 * 
-	 * @returns a string saying if the user has lost or won.
-	 */
-	public String playWar() {
-		return "";
-	}
+	
 }
