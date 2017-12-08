@@ -5,32 +5,32 @@ import java.util.Scanner;
 /** class with the card games.*/
 public class Games {
 
-	
+
 	public Deck gameDeck;
 	public Hand userHand;
 	public Hand comHand; //hand for the computer.
 	/** method used to play blackjack.
-	 * 
+	 *
 	 * @returns a statement that says if the user has lost or won.
 	 */
 	public String blackjack() {
 		boolean hitOrHold = true;
 		boolean simCom = true;
 		Scanner user = new Scanner(System.in);
-		System.out.println("Would you like to play blackjack yes or no");
+		System.out.println("Would you like to play blackjack? (yes or no)");
 		String response = user.next();
 		if (response.toLowerCase().equals("yes")) {
 			System.out.println("The game is about to begin");
-			//Game start. Some things that will be called haven't been made or finished yet. 
-			gameDeck.shuffle();			
+			//Game start. Some things that will be called haven't been made or finished yet.
+			gameDeck.shuffle();
 			userHand.addCard(gameDeck.draw());
 			userHand.addCard(gameDeck.draw());
 			comHand.addCard(gameDeck.draw());
 			comHand.addCard(gameDeck.draw());
 			if (userHand.getHandValue() == 21) {
-				return "Your hand is 21 you have won the game.";
+				return "Blackjack! You win!";
 			} else if (comHand.getHandValue() == 21) {
-				return "The computer's hand is 21 you have lost the game";
+				return "The dealer go blackjack! You lost.";
 			} else { //start of the hit or hold process.
 				System.out.println("your hand is: " + userHand.getHandValue() +" would you like to hit or hold");
 				while (hitOrHold) {
@@ -66,19 +66,19 @@ public class Games {
 			if (userHand.getHandValue() > comHand.getHandValue()) {
 				return "YOU. Your card value was: " + userHand.getHandValue() + "\n While the computer's hand was: " + comHand.getHandValue();
 			} else if (userHand.getHandValue() < comHand.getHandValue()) {
-				return "The computer. Your card value was: " + userHand.getHandValue() + "\n While the computer's hand was: " + comHand.getHandValue(); 
+				return "The computer. Your card value was: " + userHand.getHandValue() + "\n While the computer's hand was: " + comHand.getHandValue();
 			} else {
 				return "NOBODY. You and the computer tied with a value of: " + userHand.getHandValue();
 			}
 		}
 		//other responses
 		else if (response.toLowerCase().equals("no")) {
-			return "I guess you don't want to play then."; 
+			return "I guess you don't want to play then.";
 		} else {
 			System.out.println("Please type yes or no");
 		}
-		
-		
+
+
 		return ""; // will fix later.
 	}
 }

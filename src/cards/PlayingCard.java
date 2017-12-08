@@ -6,17 +6,17 @@ package cards;
  *
  */
 public class PlayingCard {
-	
+
 	/**
 	 * Suit of the card.
 	 */
 	private Suit suit;
-	
+
 	/**
 	 * Rank of the card.
 	 */
 	private Rank rank;
-	
+
 	/**
 	 * Standard constructor.
 	 * @param s suit
@@ -26,7 +26,7 @@ public class PlayingCard {
 		this.suit = s;
 		this.rank = r;
 	}
-	
+
 	/**
 	 * Copy constructor.
 	 * @param c card to copy
@@ -35,7 +35,7 @@ public class PlayingCard {
 		this.suit = c.suit;
 		this.rank = c.rank;
 	}
-	
+
 	/**
 	 * Get a card's suit.
 	 * @return suit
@@ -43,7 +43,7 @@ public class PlayingCard {
 	public Suit suit() {
 		return this.suit;
 	}
-	
+
 	/**
 	 * Get a card's rank.
 	 * @return rank
@@ -51,7 +51,7 @@ public class PlayingCard {
 	public Rank rank() {
 		return this.rank;
 	}
-	
+
 	/**
 	 * Get the value of this card.
 	 * @return value
@@ -59,13 +59,21 @@ public class PlayingCard {
 	public int getValue() {
 		return this.rank.value();
 	}
-	
+
+	/**
+	 * Determine whether or not the current card is a face card.
+	 * @return true if jack, queen, or king
+	 */
+	public boolean isFaceCard() {
+		return this.getValue() > 10;
+	}
+
 	/**
 	 * Get a string representation of a card.
 	 * @return string
 	 */
 	public String toString() {
-		return this.rank + " of " + this.suit;
+		return "[" + this.rank + " of " + this.suit + "]";
 	}
 
 	/* (non-Javadoc)
