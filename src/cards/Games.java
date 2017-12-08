@@ -5,9 +5,10 @@ import java.util.Scanner;
 /** class with the card games.*/
 public class Games {
 
-	private Deck gameDeck;
-	private Hand userHand;
-	private Hand comHand; //hand for the computer.
+	
+	public Deck gameDeck;
+	public Hand userHand;
+	public Hand comHand; //hand for the computer.
 	/** method used to play blackjack.
 	 * 
 	 * @returns a statement that says if the user has lost or won.
@@ -16,9 +17,9 @@ public class Games {
 		boolean hitOrHold = true;
 		boolean simCom = true;
 		Scanner user = new Scanner(System.in);
-		String response = user.next();
 		System.out.println("Would you like to play blackjack yes or no");
-		if (response.toLowerCase() == "yes") {
+		String response = user.next();
+		if (response.toLowerCase().equals("yes")) {
 			System.out.println("The game is about to begin");
 			//Game start. Some things that will be called haven't been made or finished yet. 
 			gameDeck.shuffle();			
@@ -71,13 +72,13 @@ public class Games {
 			}
 		}
 		//other responses
-		if (response.toLowerCase() == "no") {
+		else if (response.toLowerCase().equals("no")) {
 			return "I guess you don't want to play then."; 
 		} else {
 			System.out.println("Please type yes or no");
 		}
 		
-
+		
 		return ""; // will fix later.
 	}
 }
