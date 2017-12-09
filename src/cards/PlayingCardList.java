@@ -10,12 +10,12 @@ public class PlayingCardList {
 	/**
 	 * First card in the list.
 	 */
-	private Node head;
+	protected Node head;
 	
 	/**
 	 * Length of the list.
 	 */
-	private int length;
+	protected int length;
 	
 	/**
 	 * Default constructor.

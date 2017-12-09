@@ -53,6 +53,14 @@ public class PlayingCard {
 	}
 	
 	/**
+	 * Determine whether or not a card is a face card.
+	 * @return bool
+	 */
+	public boolean isFaceCard() {
+		return this.rank.value() > 10;
+	}
+	
+	/**
 	 * Get the value of this card.
 	 * @return value
 	 */
