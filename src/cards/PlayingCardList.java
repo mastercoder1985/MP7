@@ -29,9 +29,7 @@ public class PlayingCardList {
 	 * @param orig original list to copy from
 	 */
 	public PlayingCardList(PlayingCardList orig) {
-		while(orig.length > 0) {
-			this.add(orig.remove(0));
-		}
+		this.addAll(orig);
 	}
 	
 	/**
@@ -53,6 +51,18 @@ public class PlayingCardList {
 			this.head.add(c);
 		}
 		this.length++;
+	}
+	
+	/**
+	 * Add several cards from another list.
+	 * @param l other list.
+	 */
+	public void addAll(PlayingCardList l) {
+		Node pointer = l.head;
+		while(pointer != null) {
+			this.add(pointer.card);
+			pointer = pointer.next;
+		}
 	}
 	
 	/**
@@ -124,6 +134,20 @@ public class PlayingCardList {
 		nodeA.card = nodeB.card;
 		nodeB.card = tempCard;
 		
+	}
+	
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		Node pointer = this.head;
+		while(true) {
+			result.append(pointer.card.toString());
+			if(pointer.next == null) {
+				break;
+			}
+			result.append(", ");
+			pointer = pointer.next;
+		}
+		return result.toString();
 	}
 
 }

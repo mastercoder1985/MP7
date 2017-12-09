@@ -1,19 +1,31 @@
 package cards;
 /** Class to represent the hand for the player and dealer.*/
 public class Hand extends PlayingCardList {
+	
+	private String holder;
 
 	/** Constructor to make a new hand.*/
 
-	public Hand() {
-
+	public Hand(String s) {
+		this.holder = s;
+	}
+	
+	public Hand(String s, PlayingCardList orig) {
+		super(orig);
+		this.holder = s;
+	}
+	
+	/**
+	 * Get the holder of the hand.
+	 * @return holder's name
+	 */
+	public String getHolder() {
+		return this.holder;
 	}
 
-	/** adds a card to the hand.*/
-	
-
-
 	public String toString() {
-		StringBuilder returnString = new StringBuilder();
+		StringBuilder returnString = new StringBuilder(this.holder);
+		returnString.append("'s hand: ");
 		Node pointer = this.head;
 		while(true) {
 			returnString.append(pointer.card.toString());
@@ -24,6 +36,14 @@ public class Hand extends PlayingCardList {
 			pointer = pointer.next;
 		}
 		return returnString.toString();
+	}
+	
+	/**
+	 * Print a hand in a way that's helpful for blackjack.
+	 */
+	public void printBlackJackHand() {
+		System.out.println(this.toString());
+		System.out.println("Value: " + this.getHandValue());
 	}
 
 	/** 

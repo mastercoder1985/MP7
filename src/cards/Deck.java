@@ -7,10 +7,14 @@ package cards;
  */
 public class Deck extends PlayingCardList{
 	
+	/**
+	 * Default constructor.
+	 */
 	public Deck() {
 		for(Rank r : Rank.values()) {
 			for(Suit s : Suit.values()) {
-				this.add(new PlayingCard(s,r));
+				PlayingCard c = new PlayingCard(s,r);
+				this.add(c);
 			}
 		}
 	}
@@ -27,10 +31,12 @@ public class Deck extends PlayingCardList{
 	 * Shuffle a deck.
 	 */
 	public void shuffle() {
-		for(int i = 0; i < this.length() - 2; i++) {
-			int randomIndex = (int) (Math.random() * (this.length() - i) + i + 1);
+		for(int i = 0; i < this.length() - 1; i++) {
+			int randomIndex = (int) (Math.random() * (this.length() - i - 1)) + i + 1;
 			this.swap(i, randomIndex);
 		}
 	}
+	
+	
 
 }
