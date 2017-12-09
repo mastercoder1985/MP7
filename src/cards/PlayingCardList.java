@@ -61,8 +61,21 @@ public class PlayingCardList {
 	 * @return removed card
 	 */
 	public PlayingCard remove(int index) {
+		Node returnNode;
+		if(index == 0) {
+			returnNode = this.head;
+			this.head = returnNode.next;
+		} else {
+			Node pointer = this.head;
+			while(index > 1) {
+				pointer = pointer.next;
+				index--;
+			}
+			returnNode = pointer.next;
+			pointer.next = returnNode.next;
+		}
 		this.length--;
-		return nodeAt(index).remove();
+		return returnNode.card;
 	}
 	
 	/**
@@ -72,15 +85,10 @@ public class PlayingCardList {
 	 * @return reference to card
 	 */
 	public Node nodeAt(int index) {
-		if(index < 0) {
-			throw new IndexOutOfBoundsException();
-		}
 		Node pointer = this.head;
-		for(int i = index; i > 0; i--) {
-			if(pointer == null) {
-				throw new IndexOutOfBoundsException();
-			}
+		while(index > 0) {
 			pointer = pointer.next;
+			index--;
 		}
 		return pointer;
 	}
@@ -88,10 +96,19 @@ public class PlayingCardList {
 	/**
 	 * Find a card in a list.
 	 * @param c card to search for
-	 * @return reference to card, or null if the list doesn't contain it
+	 * @return index of card, or -1 if not found
 	 */
-	public PlayingCard find(PlayingCard c) {
-		return null;
+	public int find(PlayingCard c) {
+		Node pointer = this.head;
+		int index = 0;
+		while(pointer != null) {
+			if(pointer.card.equals(c)) {
+				return index;
+			}
+			pointer = pointer.next;
+			index++;
+		}
+		return -1;
 	}
 	
 	/**
@@ -106,13 +123,6 @@ public class PlayingCardList {
 		PlayingCard tempCard = nodeA.card;
 		nodeA.card = nodeB.card;
 		nodeB.card = tempCard;
-		
-	}
-	
-	/**
-	 * Sort a list of playing cards
-	 */
-	public void sort() {
 		
 	}
 
