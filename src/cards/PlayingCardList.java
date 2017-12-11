@@ -16,6 +16,13 @@ public class PlayingCardList {
 	 * Length of the list.
 	 */
 	protected int length;
+	
+	/**
+	 * Default constructor.
+	 */
+	public PlayingCardList() {
+		
+	}
 
 	/**
 	 * Copy constructor.
