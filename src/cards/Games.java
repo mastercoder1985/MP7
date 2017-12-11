@@ -59,9 +59,11 @@ public class Games {
 				
 				while (true) {
 					Thread.sleep(1000);
+
 					if(comHand.getHandValue() > 21) {
 						return"The dealer busted! You win.";
 					}
+
 					if(comHand.getHandValue() >= 16) {
 						System.out.println("The dealer holds.");
 						break;
