@@ -28,15 +28,6 @@ public class PlayingCard {
 	}
 
 	/**
-	 * Copy constructor.
-	 * @param c card to copy
-	 */
-	public PlayingCard(PlayingCard c) {
-		this.suit = c.suit;
-		this.rank = c.rank;
-	}
-
-	/**
 	 * Get a card's suit.
 	 * @return suit
 	 */
@@ -51,7 +42,7 @@ public class PlayingCard {
 	public Rank rank() {
 		return this.rank;
 	}
-	
+
 	/**
 	 * Get the value of this card.
 	 * @return value

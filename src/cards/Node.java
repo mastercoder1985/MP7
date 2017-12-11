@@ -18,13 +18,6 @@ public class Node {
 	protected Node next;
 
 	/**
-	 * Default constructor.
-	 */
-	protected Node() {
-
-	}
-
-	/**
 	 * Create a new node with no next node.
 	 * @param c card
 	 */
