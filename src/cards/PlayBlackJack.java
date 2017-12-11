@@ -8,9 +8,13 @@ public class PlayBlackJack {
 		Scanner s = new Scanner(System.in);
 		boolean wantToPlay = true;
 		while(wantToPlay) {
-			Games black = new Games();			
-			String str = black.blackjack(s);
-			System.out.println(str);
+			Games black = new Games();	
+			try {
+				String str = black.blackjack(s);
+				System.out.println(str);
+			} catch(InterruptedException e) {
+				System.out.println("Oops! Something went wrong!");
+			}
 			System.out.println("Would you like to play again? (yes or no)");
 			String again = s.next();
 			if (again.equals("no")) {
